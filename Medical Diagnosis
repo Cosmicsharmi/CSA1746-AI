@@ -1,0 +1,9 @@
+symptom(flu, fever).
+symptom(flu, cough).
+symptom(migraine, headache).
+symptom(migraine, sensitivity_to_light).
+
+diagnose(S1, S2) :-
+    symptom(Disease, S1),
+    symptom(Disease, S2),
+    write('Possible disease: '), write(Disease), nl.
