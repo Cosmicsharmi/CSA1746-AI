@@ -1,0 +1,10 @@
+color(apple, red).
+color(banana, yellow).
+color(grape, purple).
+color(orange, orange).
+
+find_fruit(Color) :-
+    color(Fruit, Color),
+    write(Fruit), nl,
+    fail.
+find_fruit(_).
