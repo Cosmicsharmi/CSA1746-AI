@@ -1,0 +1,17 @@
+fact(fever).
+fact(cough).
+
+rule(flu, [fever, cough]).
+rule(cold, [cough]).
+
+forward_chain :-
+    rule(Disease, Symptoms),
+    check_all(Symptoms),
+    write('Derived: '), write(Disease), nl,
+    fail.
+forward_chain.
+
+check_all([]).
+check_all([H|T]) :-
+    fact(H),
+    check_all(T).
