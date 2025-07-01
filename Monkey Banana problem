@@ -1,0 +1,15 @@
+% States: monkey(location), box(location), monkey_on_box(boolean)
+
+move([monkey(on_floor), box(middle), monkey_on_box(no)], climb_box, 
+     [monkey(on_box), box(middle), monkey_on_box(yes)]).
+
+move([monkey(on_box), box(middle), monkey_on_box(yes)], get_banana, 
+     [monkey(has_banana), box(middle), monkey_on_box(yes)]).
+
+solve(State) :- goal(State).
+solve(State) :-
+    move(State, Action, NewState),
+    write('Action: '), write(Action), nl,
+    solve(NewState).
+
+goal([monkey(has_banana), _, _]).
